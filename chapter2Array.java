@@ -80,6 +80,26 @@ class HighArray {
     }
 
     // Problem 2.6
+    public void merge(OrdArray orderArr) {
+        int n1 = nElem - 1;
+        int n2 = orderArr.size() - 1;
+        nElem += orderArr.size();
+        int n = nElem - 1;
+
+        while (n1 >= 0 || n2 >= 0) {
+            if (n1 == -1) {
+                a[n--] = orderArr.a[n2--];
+            } else if (n2 == -1) {
+                a[n--] = a[n1--];
+            } else if (a[n1] >= orderArr.a[n2]) {
+                a[n--] = a[n1--];
+            } else if (a[n1] < orderArr.a[n2]) {
+                a[n--] = orderArr.a[n2--];
+            }
+        }
+    }
+    
+    // Problem 2.6 static method
     public void noDup() {
         Set<Long> hashSet = new HashSet<Long>();
 
