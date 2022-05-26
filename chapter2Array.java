@@ -15,7 +15,6 @@ class HighArray {
             if (a[j] == searchKey) {
                 return true;
             }
-            // return false;
         }
         return false;
 
@@ -25,7 +24,6 @@ class HighArray {
     }
 
     public boolean delete(long value) {
-
         int j;
 
         for (j = 0; j < nElem; j++) {
@@ -48,7 +46,7 @@ class HighArray {
         System.out.println("");
     }
 
-  // Problem 2.1
+    // Problem 2.1
     public long getMax() {
         if (nElem == 0) {
             return -1;
@@ -63,7 +61,7 @@ class HighArray {
         return maxNum;
     }
 
-  // Problem 2.2
+    // Problem 2.2
     public long removeMax() {
         if (nElem == 0) {
             return -1;
@@ -81,7 +79,7 @@ class HighArray {
         return maxNum;
     }
 
-  // Problem 2.6
+    // Problem 2.6
     public void noDup() {
         Set<Long> hashSet = new HashSet<Long>();
 
@@ -97,68 +95,6 @@ class HighArray {
     }
 
 }
-
-
-class OrdArray {
-    private long[] a;
-    private int nElem;
-
-    public OrdArray(int max) {
-        a = new long[max];
-        nElem = 0;
-    }
-
-    public int size() {
-        return nElem;
-    }
-
-    public int find(long searchKey) {
-        int left = 0;
-        int right = nElem - 1;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (a[mid] == searchKey) {
-                return mid;
-            } else if (a[mid] > searchKey) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return -1;
-    }
-
-    public void insert(long value) {
-
-        int left = 0;
-        int right = nElem++ - 1;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (a[mid] == value) {
-                break;
-            } else if (a[mid] > value) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
-        int newLocation = right + 1;
-        for (int j = newLocation + 1; j < nElem; j++) {
-            a[j] = a[j - 1];
-        }
-        a[newLocation] = value;
-    }
-
-    public void display() {
-        for (int j = 0; j < nElem; j++) {
-            System.out.print(a[j] + " ");
-        }
-        System.out.println("");
-    }
-}
-
 
 
 class OrdArray {
